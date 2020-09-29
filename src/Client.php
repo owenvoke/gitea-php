@@ -14,6 +14,7 @@ use Http\Client\Common\Plugin\RedirectPlugin;
 use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
+use OwenVoke\Gitea\Api\Repo;
 use OwenVoke\Gitea\Exception\BadMethodCallException;
 use OwenVoke\Gitea\HttpClient\Plugin\Authentication;
 use OwenVoke\Gitea\Exception\InvalidArgumentException;
@@ -21,6 +22,10 @@ use OwenVoke\Gitea\Exception\InvalidArgumentException;
 /**
  * @method Api\CurrentUser currentUser()
  * @method Api\CurrentUser me()
+ * @method Api\Repo repo()
+ * @method Api\Repo repos()
+ * @method Api\Repo repository()
+ * @method Api\Repo repositories()
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
  */
@@ -65,6 +70,13 @@ final class Client
             case 'current_user':
             case 'currentUser':
                 $api = new CurrentUser($this);
+                break;
+
+            case 'repo':
+            case 'repos':
+            case 'repository':
+            case 'repositories':
+                $api = new Repo($this);
                 break;
 
             default:
