@@ -15,11 +15,11 @@
     },
     "require-dev": {
         "guzzlehttp/psr7": "^1.6",
-        "pestphp/pest": "^0.3",
         "http-interop/http-factory-guzzle": "^1.0",
+        "pestphp/pest": "^0.3",
         "php-http/guzzle6-adapter": "^2.0.1",
         "php-http/mock-client": "^1.4",
-        "phpstan/phpstan": "^0.12.40",
+        "phpstan/phpstan": "^0.12.46",
         "rector/rector-prefixed": "0.8.11",
         "symfony/var-dumper": "^5.1"
     },
