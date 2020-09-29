@@ -23,6 +23,8 @@ use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
 /**
  * @method Api\CurrentUser currentUser()
  * @method Api\CurrentUser me()
+ * @method Api\Miscellaneous\Markdown markdown()
+ * @method Api\Miscellaneous\Version version()
  * @method Api\Repo repo()
  * @method Api\Repo repos()
  * @method Api\Repo repository()
