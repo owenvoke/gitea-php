@@ -3,6 +3,7 @@
 namespace OwenVoke\Gitea\Api;
 
 use OwenVoke\Gitea\Api\Repository\Commits;
+use OwenVoke\Gitea\Api\Repository\Stargazers;
 
 class Repo extends AbstractApi
 {
@@ -116,5 +117,10 @@ class Repo extends AbstractApi
     public function commits(): Commits
     {
         return new Commits($this->client);
+    }
+
+    public function stargazers(): Stargazers
+    {
+        return new Stargazers($this->client);
     }
 }
