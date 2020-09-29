@@ -1,0 +1,41 @@
+{
+    "name": "owenvoke/gitea",
+    "type": "library",
+    "description": "A Gitea API client",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^0.3",
+        "phpstan/phpstan": "^0.12.40",
+        "rector/rector-prefixed": "^0.8.6",
+        "symfony/var-dumper": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwenVoke\\Gitea\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OwenVoke\\Gitea\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "rector process src",
+        "test:lint": "rector process src --dry-run",
+        "test:types": "phpstan analyse --ansi --memory-limit=0",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
