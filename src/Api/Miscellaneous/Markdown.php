@@ -6,10 +6,13 @@ use OwenVoke\Gitea\Api\AbstractApi;
 
 class Markdown extends AbstractApi
 {
-    public function render($text, $mode = 'markdown', $context = null): string
+    public const MARKDOWN_MODE_DEFAULT = 'markdown';
+    public const MARKDOWN_MODE_GFM = 'gfm';
+
+    public function render(string $text, string $mode = self::MARKDOWN_MODE_DEFAULT, ?string $context = null): string
     {
-        if (! in_array($mode, ['gfm', 'markdown'])) {
-            $mode = 'markdown';
+        if (! in_array($mode, [self::MARKDOWN_MODE_DEFAULT, self::MARKDOWN_MODE_GFM])) {
+            $mode = self::MARKDOWN_MODE_DEFAULT;
         }
 
         $params = [
@@ -17,7 +20,7 @@ class Markdown extends AbstractApi
             'mode' => $mode,
         ];
 
-        if ($context !== null && $mode === 'gfm') {
+        if ($context !== null && $mode === self::MARKDOWN_MODE_GFM) {
             $params['context'] = $context;
         }
 
