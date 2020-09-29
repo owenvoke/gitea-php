@@ -1,6 +1,8 @@
 # The MIT License (MIT)
 
 Copyright (c) 2020 Owen Voke <development@voke.dev>
+Copyright (c) 2012 KnpLabs (Original author, https://github.com/KnpLabs/php-github-api)
+Copyright (c) 2010 Thibault Duplessis (Original author, https://github.com/KnpLabs/php-github-api)
 
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
