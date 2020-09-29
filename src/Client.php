@@ -19,6 +19,9 @@ use OwenVoke\Gitea\HttpClient\Plugin\Authentication;
 use OwenVoke\Gitea\Exception\InvalidArgumentException;
 
 /**
+ * @method Api\CurrentUser currentUser()
+ * @method Api\CurrentUser me()
+ *
  * @author Joseph Bielawski <stloyd@gmail.com>
  */
 final class Client
