@@ -4,20 +4,21 @@ declare(strict_types=1);
 
 namespace OwenVoke\Gitea;
 
-use Http\Client\HttpClient;
-use OwenVoke\Gitea\Api\CurrentUser;
-use OwenVoke\Gitea\Api\ApiInterface;
-use OwenVoke\Gitea\HttpClient\Builder;
-use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
-use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
-use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
+use Http\Client\HttpClient;
+use Http\Discovery\Psr17FactoryDiscovery;
+use OwenVoke\Gitea\Api\ApiInterface;
+use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Repo;
+use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Exception\BadMethodCallException;
-use OwenVoke\Gitea\HttpClient\Plugin\Authentication;
 use OwenVoke\Gitea\Exception\InvalidArgumentException;
+use OwenVoke\Gitea\HttpClient\Builder;
+use OwenVoke\Gitea\HttpClient\Plugin\Authentication;
+use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
 
 /**
  * @method Api\CurrentUser currentUser()
@@ -26,8 +27,11 @@ use OwenVoke\Gitea\Exception\InvalidArgumentException;
  * @method Api\Repo repos()
  * @method Api\Repo repository()
  * @method Api\Repo repositories()
+ * @method Api\User user()
+ * @method Api\User users()
  *
  * @author Joseph Bielawski <stloyd@gmail.com>
+ * @author Owen Voke <development@voke.dev>
  */
 final class Client
 {
@@ -77,6 +81,11 @@ final class Client
             case 'repository':
             case 'repositories':
                 $api = new Repo($this);
+                break;
+
+            case 'user':
+            case 'users':
+                $api = new User($this);
                 break;
 
             default:
