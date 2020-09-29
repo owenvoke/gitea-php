@@ -14,12 +14,22 @@ A Gitea API client based on [@KnpLabs' GitHub API client](https://github.com/Knp
 Via Composer
 
 ```bash
-$ composer require owenvoke/gitea
+$ composer require owenvoke/gitea php-http/guzzle6-adapter:^2.0
 ```
+
+Why `php-http/guzzle6-adapter`? We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io)..
 
 ## Usage
 
-...
+**Basic usage**
+
+```php
+// Include the Composer autoloader
+require_once __DIR__ . '/vendor/autoload.php';
+
+$client = new \OwenVoke\Gitea\Client();
+$repositories = $client->api('me');
+```
 
 ## Change log
 
@@ -42,7 +52,7 @@ If you discover any security related issues, please email security@voke.dev inst
 ## Credits
 
 - [Owen Voke][link-author]
-- [KNP Labs](https://github.com/KnpLabs) (based on [their GitHub client](https://github.com/KnpLabs/php-github-api)).
+- [KNP Labs](https://github.com/KnpLabs) (based on [their GitHub client](https://github.com/KnpLabs/php-github-api))
 - [All Contributors][link-contributors]
 
 ## License
