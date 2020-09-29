@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use OwenVoke\Gitea\Client;
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\CurrentUser\Emails;
 use OwenVoke\Gitea\Api\CurrentUser\PublicKeys;
