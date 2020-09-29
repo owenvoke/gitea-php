@@ -2,6 +2,8 @@
 
 namespace OwenVoke\Gitea\Api;
 
+use OwenVoke\Gitea\Api\Repository\Commits;
+
 class Repo extends AbstractApi
 {
     use AcceptHeaderTrait;
@@ -109,5 +111,10 @@ class Repo extends AbstractApi
             'new_owner' => $newOwner,
             'team_ids' => $teamId,
         ]);
+    }
+
+    public function commits(): Commits
+    {
+        return new Commits($this->client);
     }
 }
