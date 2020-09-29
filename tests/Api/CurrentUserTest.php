@@ -9,7 +9,7 @@ use OwenVoke\Gitea\Api\CurrentUser\PublicKeys;
 beforeEach(fn () => $this->apiClass = CurrentUser::class);
 
 it('should show the current user', function () {
-    $expectedArray = ['id' => 1, 'username' => 'l3l0'];
+    $expectedArray = ['id' => 1, 'username' => 'owenvoke'];
 
     $api = $this->getApiMock();
 
