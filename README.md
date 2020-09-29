@@ -7,7 +7,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Buy us a tree][ico-treeware-gifting]][link-treeware-gifting]
 
-A Gitea API client
+A Gitea API client based on [@KnpLabs' GitHub API client](https://github.com/KnpLabs/php-github-api)
 
 ## Install
 
@@ -42,6 +42,7 @@ If you discover any security related issues, please email security@voke.dev inst
 ## Credits
 
 - [Owen Voke][link-author]
+- [KNP Labs](https://github.com/KnpLabs) (based on [their GitHub client](https://github.com/KnpLabs/php-github-api)).
 - [All Contributors][link-contributors]
 
 ## License
