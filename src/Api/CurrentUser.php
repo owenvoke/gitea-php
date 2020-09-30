@@ -9,8 +9,6 @@ use OwenVoke\Gitea\Api\CurrentUser\PublicKeys;
 
 class CurrentUser extends AbstractApi
 {
-    use AcceptHeaderTrait;
-
     public function show()
     {
         return $this->get('/user');

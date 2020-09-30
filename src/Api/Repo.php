@@ -7,8 +7,6 @@ use OwenVoke\Gitea\Api\Repository\Stargazers;
 
 class Repo extends AbstractApi
 {
-    use AcceptHeaderTrait;
-
     public function show(string $username, string $repository): array
     {
         return $this->get(sprintf('/repos/%s/%s', rawurlencode($username), rawurlencode($repository)));

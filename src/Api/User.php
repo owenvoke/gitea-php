@@ -6,8 +6,6 @@ namespace OwenVoke\Gitea\Api;
 
 class User extends AbstractApi
 {
-    use AcceptHeaderTrait;
-
     public function show(string $username): array
     {
         return $this->get(sprintf('/users/%s', rawurlencode($username)));
