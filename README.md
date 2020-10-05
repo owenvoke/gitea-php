@@ -17,7 +17,7 @@ Via Composer
 $ composer require owenvoke/gitea php-http/guzzle6-adapter:^2.0
 ```
 
-Why `php-http/guzzle6-adapter`? We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io)..
+Why `php-http/guzzle6-adapter`? We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).
 
 ## Usage
 
