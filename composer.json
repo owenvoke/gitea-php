@@ -20,7 +20,7 @@
         "php-http/guzzle6-adapter": "^2.0.1",
         "php-http/mock-client": "^1.4",
         "phpstan/phpstan": "^0.12.47",
-        "rector/rector-prefixed": "0.8.11",
+        "rector/rector-prefixed": "0.8.48",
         "symfony/var-dumper": "^5.1"
     },
     "autoload": {
