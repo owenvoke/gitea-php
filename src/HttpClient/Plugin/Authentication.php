@@ -2,12 +2,12 @@
 
 namespace OwenVoke\Gitea\HttpClient\Plugin;
 
+use Http\Client\Common\Plugin;
+use Http\Client\Common\Plugin\VersionBridgePlugin;
 use Http\Promise\Promise;
 use OwenVoke\Gitea\Client;
-use Http\Client\Common\Plugin;
-use Psr\Http\Message\RequestInterface;
 use OwenVoke\Gitea\Exception\RuntimeException;
-use Http\Client\Common\Plugin\VersionBridgePlugin;
+use Psr\Http\Message\RequestInterface;
 
 final class Authentication implements Plugin
 {

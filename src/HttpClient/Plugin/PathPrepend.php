@@ -2,10 +2,10 @@
 
 namespace OwenVoke\Gitea\HttpClient\Plugin;
 
-use Http\Promise\Promise;
 use Http\Client\Common\Plugin;
-use Psr\Http\Message\RequestInterface;
 use Http\Client\Common\Plugin\VersionBridgePlugin;
+use Http\Promise\Promise;
+use Psr\Http\Message\RequestInterface;
 
 final class PathPrepend implements Plugin
 {
@@ -25,7 +25,7 @@ final class PathPrepend implements Plugin
     {
         $currentPath = $request->getUri()->getPath();
         if (strpos($currentPath, $this->path) !== 0) {
-            $uri = $request->getUri()->withPath($this->path . $currentPath);
+            $uri = $request->getUri()->withPath($this->path.$currentPath);
             $request = $request->withUri($uri);
         }
 

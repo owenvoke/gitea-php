@@ -31,7 +31,7 @@ final class ResponseMediator
      */
     public static function getPagination(ResponseInterface $response)
     {
-        if (!$response->hasHeader('Link')) {
+        if (! $response->hasHeader('Link')) {
             return;
         }
 

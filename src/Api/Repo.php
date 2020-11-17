@@ -35,7 +35,7 @@ class Repo extends AbstractApi
             'name' => $name,
             'description' => $description,
             'homepage' => $homepage,
-            'private' => !$public,
+            'private' => ! $public,
             'license' => $license,
             'readme' => $readme,
             'gitignores' => $gitignores,
@@ -60,7 +60,7 @@ class Repo extends AbstractApi
     {
         $url = sprintf('/repos/%s/%s/branches', rawurlencode($username), rawurlencode($repository));
         if ($branch !== null) {
-            $url .= '/' . rawurlencode($branch);
+            $url .= '/'.rawurlencode($branch);
         }
 
         return $this->get($url);

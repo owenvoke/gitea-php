@@ -2,16 +2,16 @@
 
 namespace OwenVoke\Gitea\HttpClient;
 
-use Http\Client\Common\Plugin;
-use Psr\Http\Client\ClientInterface;
-use Http\Discovery\Psr18ClientDiscovery;
 use Http\Client\Common\HttpMethodsClient;
-use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Client\Common\PluginClientFactory;
-use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Http\Client\Common\Plugin\HeaderAppendPlugin;
 use Http\Client\Common\HttpMethodsClientInterface;
+use Http\Client\Common\Plugin;
+use Http\Client\Common\Plugin\HeaderAppendPlugin;
+use Http\Client\Common\PluginClientFactory;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 final class Builder
 {
@@ -124,7 +124,7 @@ final class Builder
      */
     public function addHeaderValue($header, $headerValue)
     {
-        if (!isset($this->headers[$header])) {
+        if (! isset($this->headers[$header])) {
             $this->headers[$header] = $headerValue;
         } else {
             $this->headers[$header] = array_merge((array) $this->headers[$header], [$headerValue]);

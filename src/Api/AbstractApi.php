@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace OwenVoke\Gitea\Api;
 
-use Psr\Http\Message\ResponseInterface;
 use OwenVoke\Gitea\Client;
 use OwenVoke\Gitea\HttpClient\Message\ResponseMediator;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractApi implements ApiInterface
 {
@@ -75,10 +75,10 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get(string $path, array $parameters = [], array $requestHeaders = [])
     {
-        if (null !== $this->page && !isset($parameters['page'])) {
+        if (null !== $this->page && ! isset($parameters['page'])) {
             $parameters['page'] = $this->page;
         }
-        if (null !== $this->perPage && !isset($parameters['limit'])) {
+        if (null !== $this->perPage && ! isset($parameters['limit'])) {
             $parameters['limit'] = $this->perPage;
         }
         if (array_key_exists('ref', $parameters) && null === $parameters['ref']) {
@@ -86,7 +86,7 @@ abstract class AbstractApi implements ApiInterface
         }
 
         if (count($parameters) > 0) {
-            $path .= '?' . http_build_query($parameters, '', '&', PHP_QUERY_RFC3986);
+            $path .= '?'.http_build_query($parameters, '', '&', PHP_QUERY_RFC3986);
         }
 
         $response = $this->client->getHttpClient()->get($path, $requestHeaders);
@@ -109,7 +109,7 @@ abstract class AbstractApi implements ApiInterface
             unset($parameters['ref']);
         }
 
-        return $this->client->getHttpClient()->head($path . '?' . http_build_query($parameters, '', '&', PHP_QUERY_RFC3986), $requestHeaders);
+        return $this->client->getHttpClient()->head($path.'?'.http_build_query($parameters, '', '&', PHP_QUERY_RFC3986), $requestHeaders);
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace OwenVoke\Gitea\Exception;
 
-use Throwable;
 use ErrorException;
+use Throwable;
 
 class MissingArgumentException extends ErrorException
 {

@@ -2,9 +2,9 @@
 
 namespace OwenVoke\Gitea\Tests;
 
-use ReflectionMethod;
 use Http\Client\HttpClient;
 use PHPUnit\Framework\MockObject\MockObject;
+use ReflectionMethod;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
