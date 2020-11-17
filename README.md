@@ -14,10 +14,10 @@ A Gitea API client.
 Via Composer
 
 ```bash
-$ composer require owenvoke/gitea php-http/guzzle6-adapter:^2.0
+$ composer require owenvoke/gitea guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
-Why `php-http/guzzle6-adapter`? We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).
+We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).
 
 ## Usage
 

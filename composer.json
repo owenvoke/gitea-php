@@ -16,8 +16,8 @@
     "require-dev": {
         "guzzlehttp/psr7": "^1.6",
         "http-interop/http-factory-guzzle": "^1.0",
-        "pestphp/pest": "^0.3",
-        "php-http/guzzle6-adapter": "^2.0.1",
+        "pestphp/pest": "^0.3.10",
+        "guzzlehttp/guzzle": "^7.1.0",
         "php-http/mock-client": "^1.4",
         "phpstan/phpstan": "^0.12.47",
         "rector/rector-prefixed": "0.8.48",
