@@ -8,31 +8,17 @@ use Psr\Http\Message\ResponseInterface;
 use OwenVoke\Gitea\Client;
 use OwenVoke\Gitea\HttpClient\Message\ResponseMediator;
 
-/**
- * Abstract class for Api classes.
- *
- * @author Joseph Bielawski <stloyd@gmail.com>
- */
 abstract class AbstractApi implements ApiInterface
 {
-    /**
-     * The client.
-     */
     protected Client $client;
 
-    /**
-     * The requested page (GitHub pagination).
-     */
+    /** The requested page (GitHub pagination). */
     private ?int $page = null;
 
-    /**
-     * Number of items per page (GitHub pagination).
-     */
+    /** Number of items per page (GitHub pagination). */
     protected ?int $perPage = null;
 
-    /**
-     * @param Client $client
-     */
+    /** @param Client $client */
     public function __construct(Client $client)
     {
         $this->client = $client;

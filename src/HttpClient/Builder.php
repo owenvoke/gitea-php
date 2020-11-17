@@ -13,12 +13,6 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Http\Client\Common\Plugin\HeaderAppendPlugin;
 use Http\Client\Common\HttpMethodsClientInterface;
 
-/**
- * A builder that builds the API client.
- * This will allow you to fluently add and remove plugins.
- *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 final class Builder
 {
     /** The object that sends HTTP messages. */

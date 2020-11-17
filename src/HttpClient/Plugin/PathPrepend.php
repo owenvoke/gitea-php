@@ -7,11 +7,6 @@ use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
 use Http\Client\Common\Plugin\VersionBridgePlugin;
 
-/**
- * Prepend the URI with a string.
- *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 final class PathPrepend implements Plugin
 {
     use VersionBridgePlugin;

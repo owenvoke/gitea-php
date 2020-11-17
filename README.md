@@ -7,7 +7,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Buy us a tree][ico-treeware-gifting]][link-treeware-gifting]
 
-A Gitea API client based on [@KnpLabs' GitHub API client](https://github.com/KnpLabs/php-github-api)
+A Gitea API client.
 
 ## Install
 

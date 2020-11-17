@@ -31,9 +31,6 @@ use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
  * @method Api\Repo repositories()
  * @method Api\User user()
  * @method Api\User users()
- *
- * @author Joseph Bielawski <stloyd@gmail.com>
- * @author Owen Voke <development@voke.dev>
  */
 final class Client
 {
