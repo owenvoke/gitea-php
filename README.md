@@ -7,7 +7,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Buy us a tree][ico-treeware-gifting]][link-treeware-gifting]
 
-A Gitea API client.
+An object oriented PHP wrapper for the Gitea API
 
 ## Install
 

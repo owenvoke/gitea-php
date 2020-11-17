@@ -1,7 +1,7 @@
 {
     "name": "owenvoke/gitea",
     "type": "library",
-    "description": "A Gitea API client",
+    "description": "An object oriented PHP wrapper for the Gitea API",
     "license": "MIT",
     "require": {
         "php": "^7.4 || ^8.0",
