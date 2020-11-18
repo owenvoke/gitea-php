@@ -47,6 +47,15 @@ $client = new Client();
 $client->authenticate($apiToken, null, Client::AUTH_ACCESS_TOKEN);
 ```
 
+**Self-hosted Gitea instances**
+
+The Gitea PHP wrapper can be configured to use an custom-hosted instance, rather than `gitea.com`.
+
+```php
+// Specify the URL of the Gitea instance on client initialization
+$client = new \OwenVoke\Gitea\Client(null, null, 'https://gitea.example.com');
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
