@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Organization;
+use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
 use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Client;
@@ -20,7 +21,12 @@ it('gets instances from the client', function () {
     expect($client->organization())->toBeInstanceOf(Organization::class);
     expect($client->organizations())->toBeInstanceOf(Organization::class);
 
-    // Retrieves User instance
+    // Retrieves PullRequest instance
+    expect($client->pr())->toBeInstanceOf(PullRequest::class);
+    expect($client->pullRequest())->toBeInstanceOf(PullRequest::class);
+    expect($client->pullRequests())->toBeInstanceOf(PullRequest::class);
+
+    // Retrieves Repo instance
     expect($client->repo())->toBeInstanceOf(Repo::class);
     expect($client->repos())->toBeInstanceOf(Repo::class);
     expect($client->repository())->toBeInstanceOf(Repo::class);
