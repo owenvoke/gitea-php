@@ -34,7 +34,17 @@ We are decoupled from any HTTP messaging client with help by [HTTPlug](https://h
 require_once __DIR__ . '/vendor/autoload.php';
 
 $client = new \OwenVoke\Gitea\Client();
-$repositories = $client->api('me');
+$repositories = $client->user()->repositories();
+```
+
+**Authentication**
+
+> Note: Gitea only supports authentication via an API token.
+
+```php
+use OwenVoke\Gitea\Client;
+$client = new Client();
+$client->authenticate($apiToken, null, Client::AUTH_ACCESS_TOKEN);
 ```
 
 ## Change log
