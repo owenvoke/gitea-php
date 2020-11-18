@@ -12,6 +12,7 @@ use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\ApiInterface;
 use OwenVoke\Gitea\Api\CurrentUser;
+use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\Repo;
 use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Exception\BadMethodCallException;
@@ -25,6 +26,8 @@ use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
  * @method Api\CurrentUser me()
  * @method Api\Miscellaneous\Markdown markdown()
  * @method Api\Miscellaneous\Version version()
+ * @method Api\Organization organization()
+ * @method Api\Organization organizations()
  * @method Api\Repo repo()
  * @method Api\Repo repos()
  * @method Api\Repo repository()
@@ -73,6 +76,11 @@ final class Client
             case 'current_user':
             case 'currentUser':
                 $api = new CurrentUser($this);
+                break;
+
+            case 'organization':
+            case 'organizations':
+                $api = new Organization($this);
                 break;
 
             case 'repo':
