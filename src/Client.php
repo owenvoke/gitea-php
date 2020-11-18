@@ -13,6 +13,7 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\ApiInterface;
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Organization;
+use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
 use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Exception\BadMethodCallException;
@@ -28,6 +29,9 @@ use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
  * @method Api\Miscellaneous\Version version()
  * @method Api\Organization organization()
  * @method Api\Organization organizations()
+ * @method Api\PullRequest pr()
+ * @method Api\PullRequest pullRequest()
+ * @method Api\PullRequest pullRequests()
  * @method Api\Repo repo()
  * @method Api\Repo repos()
  * @method Api\Repo repository()
@@ -82,6 +86,12 @@ final class Client
             case 'organization':
             case 'organizations':
                 $api = new Organization($this);
+                break;
+
+            case 'pr':
+            case 'pullRequest':
+            case 'pullRequests':
+                $api = new PullRequest($this);
                 break;
 
             case 'repo':
