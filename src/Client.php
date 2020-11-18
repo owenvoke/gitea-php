@@ -40,6 +40,7 @@ final class Client
     public const AUTH_ACCESS_TOKEN = 'access_token_header';
 
     public string $apiVersion;
+    private ?string $enterpriseUrl = null;
     private Builder $httpClientBuilder;
 
     public function __construct(Builder $httpClientBuilder = null, ?string $apiVersion = null, ?string $enterpriseUrl = null)
@@ -119,12 +120,19 @@ final class Client
 
     private function setEnterpriseUrl(string $enterpriseUrl): void
     {
+        $this->enterpriseUrl = $enterpriseUrl;
+
         $builder = $this->getHttpClientBuilder();
         $builder->removePlugin(AddHostPlugin::class);
         $builder->removePlugin(PathPrepend::class);
 
-        $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri($enterpriseUrl)));
+        $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri($this->getEnterpriseUrl())));
         $builder->addPlugin(new PathPrepend(sprintf('/api/%s', $this->getApiVersion())));
+    }
+
+    public function getEnterpriseUrl(): ?string
+    {
+        return $this->enterpriseUrl;
     }
 
     public function getApiVersion(): string
