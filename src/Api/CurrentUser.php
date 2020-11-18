@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OwenVoke\Gitea\Api;
 
 use OwenVoke\Gitea\Api\CurrentUser\Emails;
+use OwenVoke\Gitea\Api\CurrentUser\Notifications;
 use OwenVoke\Gitea\Api\CurrentUser\PublicKeys;
 
 class CurrentUser extends AbstractApi
@@ -22,5 +23,10 @@ class CurrentUser extends AbstractApi
     public function keys(): PublicKeys
     {
         return new PublicKeys($this->client);
+    }
+
+    public function notifications(): Notifications
+    {
+        return new Notifications($this->client);
     }
 }
