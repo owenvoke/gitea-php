@@ -19,8 +19,7 @@
         "pestphp/pest": "^1.0",
         "guzzlehttp/guzzle": "^7.1.0",
         "php-http/mock-client": "^1.4",
-        "phpstan/phpstan": "^0.12.47",
-        "rector/rector-prefixed": "0.8.48",
+        "phpstan/phpstan": "^0.12.65",
         "symfony/var-dumper": "^5.1"
     },
     "autoload": {
@@ -34,12 +33,9 @@
         }
     },
     "scripts": {
-        "lint": "rector process src",
-        "test:lint": "rector process src --dry-run",
         "test:types": "phpstan analyse --ansi --memory-limit=0",
         "test:unit": "pest --colors=always",
         "test": [
-            "@test:lint",
             "@test:types",
             "@test:unit"
         ]
