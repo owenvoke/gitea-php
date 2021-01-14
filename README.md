@@ -19,7 +19,7 @@ An object oriented PHP wrapper for the Gitea API
 
 Via Composer
 
-```bash
+```shell
 $ composer require owenvoke/gitea guzzlehttp/guzzle:^7.0.1 http-interop/http-factory-guzzle:^1.0
 ```
 
@@ -62,7 +62,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-```bash
+```shell
 $ composer test
 ```
 
