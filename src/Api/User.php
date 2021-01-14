@@ -53,4 +53,9 @@ class User extends AbstractApi
     {
         return $this->get(sprintf('/users/%s/gpg_keys', rawurlencode($username)));
     }
+
+    public function heatmap(string $username): array
+    {
+        return $this->get(sprintf('/users/%s/heatmap', rawurlencode($username)));
+    }
 }
