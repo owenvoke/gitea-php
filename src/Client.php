@@ -10,7 +10,7 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
-use OwenVoke\Gitea\Api\ApiInterface;
+use OwenVoke\Gitea\Api\AbstractApi;
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\PullRequest;
@@ -21,6 +21,7 @@ use OwenVoke\Gitea\Exception\InvalidArgumentException;
 use OwenVoke\Gitea\HttpClient\Builder;
 use OwenVoke\Gitea\HttpClient\Plugin\Authentication;
 use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * @method Api\CurrentUser currentUser()
@@ -66,7 +67,7 @@ final class Client
         }
     }
 
-    public static function createWithHttpClient(HttpClient $httpClient): self
+    public static function createWithHttpClient(ClientInterface $httpClient): self
     {
         $builder = new Builder($httpClient);
 
@@ -74,7 +75,7 @@ final class Client
     }
 
     /** @throws InvalidArgumentException */
-    public function api(string $name): ApiInterface
+    public function api(string $name): AbstractApi
     {
         switch ($name) {
             case 'me':
@@ -150,7 +151,7 @@ final class Client
         return $this->apiVersion;
     }
 
-    public function __call(string $name, array $args): ApiInterface
+    public function __call(string $name, array $args): AbstractApi
     {
         try {
             return $this->api($name);

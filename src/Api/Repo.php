@@ -114,11 +114,11 @@ class Repo extends AbstractApi
 
     public function commits(): Commits
     {
-        return new Commits($this->client);
+        return new Commits($this->getClient());
     }
 
     public function stargazers(): Stargazers
     {
-        return new Stargazers($this->client);
+        return new Stargazers($this->getClient());
     }
 }

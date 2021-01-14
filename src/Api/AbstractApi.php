@@ -8,14 +8,11 @@ use OwenVoke\Gitea\Client;
 use OwenVoke\Gitea\HttpClient\Message\ResponseMediator;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class AbstractApi implements ApiInterface
+abstract class AbstractApi
 {
-    protected Client $client;
+    private Client $client;
 
-    /** The requested page (GitHub pagination). */
-    private ?int $page = null;
-
-    /** Number of items per page (GitHub pagination). */
+    /** The per page parameter. */
     protected ?int $perPage = null;
 
     /** @param Client $client */
@@ -24,43 +21,18 @@ abstract class AbstractApi implements ApiInterface
         $this->client = $client;
     }
 
+    protected function getClient(): Client
+    {
+        return $this->client;
+    }
+
+    protected function getApiVersion(): string
+    {
+        return $this->client->getApiVersion();
+    }
+
     public function configure()
     {
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getPage()
-    {
-        return $this->page;
-    }
-
-    /**
-     * @param null|int $page
-     */
-    public function setPage($page)
-    {
-        $this->page = $page ?? (int) $page;
-
-        return $this;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getPerPage()
-    {
-        return $this->perPage;
-    }
-
-    /**
-     * @param null|int $perPage
-     */
-    public function setPerPage($perPage)
-    {
-        $this->perPage = $perPage ?? (int) $perPage;
-
         return $this;
     }
 
@@ -75,12 +47,10 @@ abstract class AbstractApi implements ApiInterface
      */
     protected function get(string $path, array $parameters = [], array $requestHeaders = [])
     {
-        if (null !== $this->page && ! isset($parameters['page'])) {
-            $parameters['page'] = $this->page;
-        }
         if (null !== $this->perPage && ! isset($parameters['limit'])) {
             $parameters['limit'] = $this->perPage;
         }
+
         if (array_key_exists('ref', $parameters) && null === $parameters['ref']) {
             unset($parameters['ref']);
         }
@@ -103,7 +73,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return ResponseInterface
      */
-    protected function head(string $path, array $parameters = [], array $requestHeaders = [])
+    protected function head(string $path, array $parameters = [], array $requestHeaders = []): ResponseInterface
     {
         if (array_key_exists('ref', $parameters) && null === $parameters['ref']) {
             unset($parameters['ref']);
@@ -215,9 +185,9 @@ abstract class AbstractApi implements ApiInterface
      *
      * @param array $parameters Request parameters
      *
-     * @return null|string
+     * @return string|null
      */
-    protected function createJsonBody(array $parameters)
+    protected function createJsonBody(array $parameters): ?string
     {
         return (count($parameters) === 0) ? null : json_encode($parameters, empty($parameters) ? JSON_FORCE_OBJECT : 0);
     }

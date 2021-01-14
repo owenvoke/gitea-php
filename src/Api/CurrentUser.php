@@ -17,16 +17,16 @@ class CurrentUser extends AbstractApi
 
     public function emails(): Emails
     {
-        return new Emails($this->client);
+        return new Emails($this->getClient());
     }
 
     public function keys(): PublicKeys
     {
-        return new PublicKeys($this->client);
+        return new PublicKeys($this->getClient());
     }
 
     public function notifications(): Notifications
     {
-        return new Notifications($this->client);
+        return new Notifications($this->getClient());
     }
 }

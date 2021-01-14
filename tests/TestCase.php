@@ -2,8 +2,9 @@
 
 namespace OwenVoke\Gitea\Tests;
 
-use Http\Client\HttpClient;
+use OwenVoke\Gitea\Client;
 use PHPUnit\Framework\MockObject\MockObject;
+use Psr\Http\Client\ClientInterface;
 use ReflectionMethod;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
@@ -12,7 +13,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     protected function getApiMock(): MockObject
     {
-        $httpClient = $this->getMockBuilder(HttpClient::class)
+        $httpClient = $this->getMockBuilder(ClientInterface::class)
             ->onlyMethods(['sendRequest'])
             ->getMock();
 
@@ -20,7 +21,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             ->expects($this->any())
             ->method('sendRequest');
 
-        $client = \OwenVoke\Gitea\Client::createWithHttpClient($httpClient);
+        $client = Client::createWithHttpClient($httpClient);
 
         return $this->getMockBuilder($this->apiClass)
             ->onlyMethods(['get', 'post', 'postRaw', 'patch', 'delete', 'put', 'head'])
