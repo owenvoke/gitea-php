@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v0.1.3 - 2021-01-14](https://github.com/owenvoke/gitea-php/compare/v0.1.2...v0.1.3)
+
+### Changed
+- Update `AbstractApi` and `Client` implementations ([e87355a](https://github.com/owenvoke/gitea-php/commit/e87355a55c1f4fd34b81e582099bfab1c8ea7c1c))
+
 ## [v0.1.2 - 2021-01-14](https://github.com/owenvoke/gitea-php/compare/v0.1.1...v0.1.2)
 
 ### Added
