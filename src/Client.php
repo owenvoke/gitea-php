@@ -8,7 +8,6 @@ use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
-use Http\Client\HttpClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\AbstractApi;
 use OwenVoke\Gitea\Api\CurrentUser;
