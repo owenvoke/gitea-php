@@ -122,3 +122,16 @@ it('should get gpg keys for a user', function () {
 
     expect($api->gpgKeys('owenvoke'))->toBe($expectedArray);
 });
+
+it('should get heatmap data for a user', function () {
+    $expectedArray = [['contributions' => 1, 'timestamp' => 0]];
+
+    $api = $this->getApiMock();
+
+    $api->expects($this->once())
+        ->method('get')
+        ->with('/users/owenvoke/heatmap')
+        ->will($this->returnValue($expectedArray));
+
+    expect($api->heatmap('owenvoke'))->toBe($expectedArray);
+});
