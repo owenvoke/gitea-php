@@ -14,6 +14,7 @@ use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
+use OwenVoke\Gitea\Api\Settings;
 use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Exception\BadMethodCallException;
 use OwenVoke\Gitea\Exception\InvalidArgumentException;
@@ -36,6 +37,7 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\Repo repos()
  * @method Api\Repo repository()
  * @method Api\Repo repositories()
+ * @method Api\Settings settings()
  * @method Api\User user()
  * @method Api\User users()
  */
@@ -100,6 +102,10 @@ final class Client
             case 'repositories':
                 $api = new Repo($this);
                 break;
+
+            case 'settings':
+               $api = new Settings($this);
+               break;
 
             case 'user':
             case 'users':
