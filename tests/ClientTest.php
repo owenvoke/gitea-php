@@ -6,6 +6,7 @@ use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
+use OwenVoke\Gitea\Api\Settings;
 use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Client;
 
@@ -31,6 +32,9 @@ it('gets instances from the client', function () {
     expect($client->repos())->toBeInstanceOf(Repo::class);
     expect($client->repository())->toBeInstanceOf(Repo::class);
     expect($client->repositories())->toBeInstanceOf(Repo::class);
+
+    // Retrieves Settings instance
+    expect($client->settings())->toBeInstanceOf(Settings::class);
 
     // Retrieves User instance
     expect($client->user())->toBeInstanceOf(User::class);
