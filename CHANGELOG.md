@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v0.1.4 - 2021-02-16](https://github.com/owenvoke/gitea-php/compare/v0.1.3...v0.1.4)
+
+### Added
+- Add `Settings` API ([068c10b](https://github.com/owenvoke/gitea-php/commit/068c10bad5a06a725700ae2a1c18a41b2c2b7991))
+
 ## [v0.1.3 - 2021-01-14](https://github.com/owenvoke/gitea-php/compare/v0.1.2...v0.1.3)
 
 ### Changed
