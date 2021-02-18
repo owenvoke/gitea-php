@@ -28,8 +28,8 @@ use Psr\Http\Client\ClientInterface;
 
 /**
  * @method Api\CurrentUser currentUser()
- * @method Api\CurrentUser me()
  * @method Api\Miscellaneous\Markdown markdown()
+ * @method Api\CurrentUser me()
  * @method Api\Organization organization()
  * @method Api\Organization organizations()
  * @method Api\PullRequest pr()
@@ -37,10 +37,10 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\PullRequest pullRequests()
  * @method Api\Repo repo()
  * @method Api\Repo repos()
- * @method Api\Repo repository()
  * @method Api\Repo repositories()
- * @method Api\Miscellaneous\SigningKey signingKey()
+ * @method Api\Repo repository()
  * @method Api\Settings settings()
+ * @method Api\Miscellaneous\SigningKey signingKey()
  * @method Api\User user()
  * @method Api\User users()
  * @method Api\Miscellaneous\Version version()
