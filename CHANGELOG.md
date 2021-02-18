@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v0.1.5 - 2021-02-18](https://github.com/owenvoke/gitea-php/compare/v0.1.4...v0.1.5)
+
+### Added
+- Add `Miscellaneous.SigningKey` API ([a5b2608](https://github.com/owenvoke/gitea-php/commit/a5b2608f5722e995f57d92c868d2651af086aa94))
+
 ## [v0.1.4 - 2021-02-16](https://github.com/owenvoke/gitea-php/compare/v0.1.3...v0.1.4)
 
 ### Added
