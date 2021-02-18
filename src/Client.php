@@ -11,6 +11,9 @@ use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\AbstractApi;
 use OwenVoke\Gitea\Api\CurrentUser;
+use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
+use OwenVoke\Gitea\Api\Miscellaneous\SigningKey;
+use OwenVoke\Gitea\Api\Miscellaneous\Version;
 use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
@@ -27,7 +30,6 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\CurrentUser currentUser()
  * @method Api\CurrentUser me()
  * @method Api\Miscellaneous\Markdown markdown()
- * @method Api\Miscellaneous\Version version()
  * @method Api\Organization organization()
  * @method Api\Organization organizations()
  * @method Api\PullRequest pr()
@@ -37,9 +39,11 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\Repo repos()
  * @method Api\Repo repository()
  * @method Api\Repo repositories()
+ * @method Api\Miscellaneous\SigningKey signingKey()
  * @method Api\Settings settings()
  * @method Api\User user()
  * @method Api\User users()
+ * @method Api\Miscellaneous\Version version()
  */
 final class Client
 {
@@ -79,44 +83,45 @@ final class Client
     public function api(string $name): AbstractApi
     {
         switch ($name) {
+            case 'markdown':
+                return new Markdown($this);
+
             case 'me':
             case 'current_user':
             case 'currentUser':
-                $api = new CurrentUser($this);
-                break;
+                return new CurrentUser($this);
 
             case 'organization':
             case 'organizations':
-                $api = new Organization($this);
-                break;
+                return new Organization($this);
 
             case 'pr':
             case 'pullRequest':
             case 'pullRequests':
-                $api = new PullRequest($this);
-                break;
+                return new PullRequest($this);
 
             case 'repo':
             case 'repos':
             case 'repository':
             case 'repositories':
-                $api = new Repo($this);
-                break;
+                return new Repo($this);
 
             case 'settings':
-               $api = new Settings($this);
-               break;
+                return new Settings($this);
+
+            case 'signingKey':
+                return new SigningKey($this);
 
             case 'user':
             case 'users':
-                $api = new User($this);
-                break;
+                return new User($this);
+
+            case 'version':
+                return new Version($this);
 
             default:
                 throw new InvalidArgumentException(sprintf('Undefined api instance called: "%s"', $name));
         }
-
-        return $api;
     }
 
     public function authenticate(string $tokenOrLogin, ?string $password = null, ?string $authMethod = null): void
