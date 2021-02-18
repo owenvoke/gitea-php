@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 use OwenVoke\Gitea\Api\CurrentUser;
+use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
+use OwenVoke\Gitea\Api\Miscellaneous\SigningKey;
+use OwenVoke\Gitea\Api\Miscellaneous\Version;
 use OwenVoke\Gitea\Api\Organization;
 use OwenVoke\Gitea\Api\PullRequest;
 use OwenVoke\Gitea\Api\Repo;
@@ -17,6 +20,9 @@ it('gets instances from the client', function () {
     expect($client->currentUser())->toBeInstanceOf(CurrentUser::class);
     expect($client->current_user())->toBeInstanceOf(CurrentUser::class);
     expect($client->me())->toBeInstanceOf(CurrentUser::class);
+
+    // Retrieves Markdown instance
+    expect($client->markdown())->toBeInstanceOf(Markdown::class);
 
     // Retrieves Organization instance
     expect($client->organization())->toBeInstanceOf(Organization::class);
@@ -36,9 +42,15 @@ it('gets instances from the client', function () {
     // Retrieves Settings instance
     expect($client->settings())->toBeInstanceOf(Settings::class);
 
+    // Retrieves SigningKey instance
+    expect($client->signingKey())->toBeInstanceOf(SigningKey::class);
+
     // Retrieves User instance
     expect($client->user())->toBeInstanceOf(User::class);
     expect($client->users())->toBeInstanceOf(User::class);
+
+    // Retrieves Version instance
+    expect($client->version())->toBeInstanceOf(Version::class);
 });
 
 it('allows setting a custom url', function () {
