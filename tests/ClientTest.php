@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use OwenVoke\Gitea\Api\CurrentUser;
+use OwenVoke\Gitea\Api\Issue;
 use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
 use OwenVoke\Gitea\Api\Miscellaneous\SigningKey;
 use OwenVoke\Gitea\Api\Miscellaneous\Version;
@@ -20,6 +21,10 @@ it('gets instances from the client', function () {
     expect($client->currentUser())->toBeInstanceOf(CurrentUser::class);
     expect($client->current_user())->toBeInstanceOf(CurrentUser::class);
     expect($client->me())->toBeInstanceOf(CurrentUser::class);
+
+    // Retrieves Issue instance
+    expect($client->issue())->toBeInstanceOf(Issue::class);
+    expect($client->issues())->toBeInstanceOf(Issue::class);
 
     // Retrieves Markdown instance
     expect($client->markdown())->toBeInstanceOf(Markdown::class);
