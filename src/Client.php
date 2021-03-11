@@ -11,6 +11,7 @@ use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\AbstractApi;
 use OwenVoke\Gitea\Api\CurrentUser;
+use OwenVoke\Gitea\Api\Issue;
 use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
 use OwenVoke\Gitea\Api\Miscellaneous\SigningKey;
 use OwenVoke\Gitea\Api\Miscellaneous\Version;
@@ -30,6 +31,8 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\CurrentUser currentUser()
  * @method Api\Miscellaneous\Markdown markdown()
  * @method Api\CurrentUser me()
+ * @method Api\Issue issue()
+ * @method Api\Issue issues()
  * @method Api\Organization organization()
  * @method Api\Organization organizations()
  * @method Api\PullRequest pr()
@@ -90,6 +93,10 @@ final class Client
             case 'current_user':
             case 'currentUser':
                 return new CurrentUser($this);
+
+            case 'issue':
+            case 'issues':
+                return new Issue($this);
 
             case 'organization':
             case 'organizations':

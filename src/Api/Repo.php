@@ -112,6 +112,11 @@ class Repo extends AbstractApi
         ]);
     }
 
+    public function issues(): Issue
+    {
+        return new Issue($this->getClient());
+    }
+
     public function commits(): Commits
     {
         return new Commits($this->getClient());
