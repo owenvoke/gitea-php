@@ -2,4 +2,4 @@
 
 ...
 
-- [ ] I have read the **[CONTRIBUTING](https://github.com/owenvoke/gitea/blob/main/.github/CONTRIBUTING.md)** document.
+- [ ] I have read the **[CONTRIBUTING](https://github.com/owenvoke/gitea-php/blob/main/.github/CONTRIBUTING.md)** document.
