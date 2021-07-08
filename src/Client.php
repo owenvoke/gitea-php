@@ -10,6 +10,7 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OwenVoke\Gitea\Api\AbstractApi;
+use OwenVoke\Gitea\Api\Admin;
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Issue;
 use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
@@ -28,6 +29,7 @@ use OwenVoke\Gitea\HttpClient\Plugin\PathPrepend;
 use Psr\Http\Client\ClientInterface;
 
 /**
+ * @method Api\Admin admin()
  * @method Api\CurrentUser currentUser()
  * @method Api\Miscellaneous\Markdown markdown()
  * @method Api\CurrentUser me()
@@ -86,6 +88,9 @@ final class Client
     public function api(string $name): AbstractApi
     {
         switch ($name) {
+            case 'admin':
+                return new Admin($this);
+
             case 'markdown':
                 return new Markdown($this);
 
