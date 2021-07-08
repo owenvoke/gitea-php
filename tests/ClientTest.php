@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use OwenVoke\Gitea\Api\Admin;
 use OwenVoke\Gitea\Api\CurrentUser;
 use OwenVoke\Gitea\Api\Issue;
 use OwenVoke\Gitea\Api\Miscellaneous\Markdown;
@@ -16,6 +17,9 @@ use OwenVoke\Gitea\Client;
 
 it('gets instances from the client', function () {
     $client = new Client();
+
+    // Retrieves Admin instance
+    expect($client->admin())->toBeInstanceOf(Admin::class);
 
     // Retrieves CurrentUser instance
     expect($client->currentUser())->toBeInstanceOf(CurrentUser::class);
