@@ -49,7 +49,7 @@ $client->authenticate($apiToken, null, Client::AUTH_ACCESS_TOKEN);
 
 **Self-hosted Gitea instances**
 
-The Gitea PHP wrapper can be configured to use an custom-hosted instance, rather than `gitea.com`.
+The Gitea PHP wrapper can be configured to use a custom-hosted instance, rather than `gitea.com`.
 
 ```php
 // Specify the URL of the Gitea instance on client initialization
