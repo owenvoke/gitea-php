@@ -14,7 +14,7 @@ it('should show signing key', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/signing-key.gpg')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->show())->toBe($expectedValue);
 });

@@ -13,7 +13,7 @@ it('should get all commits for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/commits', $data)
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->all('owenvoke', 'gitea-php', $data))->toBe($expectedValue);
 });
@@ -26,7 +26,7 @@ it('should get a commit for a repository by its hash', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/git/commits/123')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->show('owenvoke', 'gitea-php', '123'))->toBe($expectedValue);
 });

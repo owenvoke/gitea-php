@@ -12,7 +12,7 @@ it('should get public keys', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/user/keys')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->all())->toBe($expectedValue);
 });
@@ -24,7 +24,7 @@ it('should create key', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/user/keys', ['title' => 'My Key', 'key' => 'blah', 'read_only' => true])
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->create(['title' => 'My Key', 'key' => 'blah', 'read_only' => true]))->toBe($expectedValue);
 });

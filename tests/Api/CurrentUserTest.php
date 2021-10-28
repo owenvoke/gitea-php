@@ -17,7 +17,7 @@ it('should show the current user', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/user')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show())->toBe($expectedArray);
 });

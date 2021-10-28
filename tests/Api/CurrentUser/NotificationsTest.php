@@ -12,7 +12,7 @@ it('should get notifications', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/notifications')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->all())->toBe($expectedValue);
 });

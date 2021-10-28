@@ -14,7 +14,7 @@ it('should get all issues', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/issues')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->all('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -27,7 +27,7 @@ it('should show issue by id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/issues/1')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show('owenvoke', 'gitea-php', 1))->toBe($expectedArray);
 });
@@ -39,7 +39,7 @@ it('should create an issue only using its title', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/repos/owenvoke/gitea-php/issues', $expectedArray)
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->create('owenvoke', 'gitea-php', $expectedArray))->toBe($expectedArray);
 });

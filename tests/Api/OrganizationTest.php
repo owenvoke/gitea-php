@@ -14,7 +14,7 @@ it('should get all organisations', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/orgs')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->all())->toBe($expectedArray);
 });
@@ -27,7 +27,7 @@ it('should show an organisation', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/orgs/TestOrg')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show('TestOrg'))->toBe($expectedArray);
 });
@@ -40,7 +40,7 @@ it('should update an organisation', function () {
     $api->expects($this->once())
         ->method('patch')
         ->with('/orgs/TestOrg', ['value' => 'toUpdate'])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->update('TestOrg', ['value' => 'toUpdate']))->toBe($expectedArray);
 });
@@ -53,7 +53,7 @@ it('should get an organisations repositories', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/orgs/TestOrg/repos')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->repositories('TestOrg'))->toBe($expectedArray);
 });

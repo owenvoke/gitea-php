@@ -14,7 +14,7 @@ it('should show repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -26,7 +26,7 @@ it('should show repository by id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repositories/123456')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->showById(123456))->toBe($expectedArray);
 });
@@ -48,7 +48,7 @@ it('should create a repository only using its name', function () {
             'issue_labels' => null,
             'auto_init' => null,
         ])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->create('repoName'))->toBe($expectedArray);
 });
@@ -70,7 +70,7 @@ it('should create a repository for an organisation', function () {
             'issue_labels' => null,
             'auto_init' => null,
         ])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->create('repoName', '', '', true, 'FakeOrg'))->toBe($expectedArray);
 });
@@ -92,7 +92,7 @@ it('should create a repository with all parameters', function () {
             'issue_labels' => 'MyLabels',
             'auto_init' => true,
         ])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->create('repoName', 'test', 'https://voke.dev', false, null, 'MIT', '# Blah', null, 'MyLabels', true))->toBe($expectedArray);
 });
@@ -104,7 +104,7 @@ it('should get the subscribers for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/subscribers', ['page' => 2])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->subscribers('owenvoke', 'gitea-php', 2))->toBe($expectedArray);
 });
@@ -116,7 +116,7 @@ it('should get the tags for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/tags', ['page' => 2])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->tags('owenvoke', 'gitea-php', 2))->toBe($expectedArray);
 });
@@ -128,7 +128,7 @@ it('should get the branches for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/branches')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->branches('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -140,7 +140,7 @@ it('should get a branch for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/branches/main')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->branches('owenvoke', 'gitea-php', 'main'))->toBe($expectedArray);
 });
@@ -152,7 +152,7 @@ it('should get the milestones for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/milestones')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->milestones('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -164,7 +164,7 @@ it('should get the collaborators for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/collaborators')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->collaborators('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -176,7 +176,7 @@ it('should update a repository', function () {
     $api->expects($this->once())
         ->method('patch')
         ->with('/repos/owenvoke/gitea-php')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->update('owenvoke', 'gitea-php', ['description' => 'test']))->toBe($expectedArray);
 });
@@ -198,7 +198,7 @@ it('should get topics for a repository', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/topics')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->topics('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -210,7 +210,7 @@ it('should replace topics for a repository', function () {
     $api->expects($this->once())
         ->method('put')
         ->with('/repos/owenvoke/gitea-php/topics', ['topics' => ['gitea', 'php8']])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->replaceTopics('owenvoke', 'gitea-php', ['gitea', 'php8']))->toBe($expectedArray);
 });
@@ -225,7 +225,7 @@ it('should transfer a repository', function () {
             'new_owner' => 'other-account',
             'team_ids' => ['1234', '4321'],
         ])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->transfer('owenvoke', 'gitea-php', 'other-account', ['1234', '4321']))->toBe($expectedArray);
 });

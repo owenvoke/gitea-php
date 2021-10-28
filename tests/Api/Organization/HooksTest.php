@@ -13,7 +13,7 @@ it('should get all hooks for an organization', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/orgs/TestOrg/hooks')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->all('TestOrg'))->toBe($expectedValue);
 });
@@ -26,7 +26,7 @@ it('should get a hook by its id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/orgs/TestOrg/hooks/123')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->show('TestOrg', 123))->toBe($expectedValue);
 });
@@ -62,7 +62,7 @@ it('should create a hook', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/orgs/TestOrg/hooks')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->create('TestOrg', $data))->toBe($expectedValue);
 });
@@ -87,7 +87,7 @@ it('should update a hook', function () {
     $api->expects($this->once())
         ->method('patch')
         ->with('/orgs/TestOrg/hooks/123', $data)
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->update('TestOrg', 123, $data))->toBe($expectedValue);
 });

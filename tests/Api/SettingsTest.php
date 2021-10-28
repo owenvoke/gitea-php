@@ -14,7 +14,7 @@ it('should get the API settings for the instance', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/settings/api')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->api())->toBe($expectedArray);
 });
@@ -27,7 +27,7 @@ it('should get the attachment settings for the instance', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/settings/attachment')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->attachment())->toBe($expectedArray);
 });
@@ -40,7 +40,7 @@ it('should get the repository settings for the instance', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/settings/repository')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->repository())->toBe($expectedArray);
 });
@@ -53,7 +53,7 @@ it('should get the UI settings for the instance', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/settings/ui')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->ui())->toBe($expectedArray);
 });

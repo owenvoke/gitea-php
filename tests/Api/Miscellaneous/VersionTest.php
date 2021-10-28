@@ -14,7 +14,7 @@ it('should show version', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/version')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show())->toBe($expectedArray);
 });

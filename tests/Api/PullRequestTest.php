@@ -14,7 +14,7 @@ it('should get all pull requests', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/pulls')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->all('owenvoke', 'gitea-php'))->toBe($expectedArray);
 });
@@ -26,7 +26,7 @@ it('should show pull request by id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/pulls/1')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->show('owenvoke', 'gitea-php', 1))->toBe($expectedArray);
 });
@@ -38,7 +38,7 @@ it('should show pull request diff by id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/pulls/1.diff')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->showDiff('owenvoke', 'gitea-php', 1))->toBe($expectedValue);
 });
@@ -50,7 +50,7 @@ it('should show pull request patch by id', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/repos/owenvoke/gitea-php/pulls/1.patch')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->showPatch('owenvoke', 'gitea-php', 1))->toBe($expectedValue);
 });
@@ -67,7 +67,7 @@ it('should create a pull request with all parameters', function () {
             'base' => 'master',
             'head' => 'feature/pr-1',
         ])
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->create('owenvoke', 'gitea-php', [
         'title' => 'pr number 1',
@@ -84,7 +84,7 @@ it('should update a pull request', function () {
     $api->expects($this->once())
         ->method('patch')
         ->with('/repos/owenvoke/gitea-php/pulls/1')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->update('owenvoke', 'gitea-php', 1, ['title' => 'test']))->toBe($expectedArray);
 });

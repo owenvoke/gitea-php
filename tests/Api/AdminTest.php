@@ -14,7 +14,7 @@ it('should show a list of organizations', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/admin/orgs')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->organizations())->toBe($expectedArray);
 });
@@ -27,7 +27,7 @@ it('should show a list of users', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/admin/users')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->users())->toBe($expectedArray);
 });
@@ -40,7 +40,7 @@ it('should show a list of unadopted repositories', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/admin/unadopted')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->unadopted())->toBe($expectedArray);
 });
@@ -53,7 +53,7 @@ it('should show a list of cron tasks', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/admin/cron')
-        ->will($this->returnValue($expectedArray));
+        ->willReturn($expectedArray);
 
     expect($api->cron())->toBe($expectedArray);
 });

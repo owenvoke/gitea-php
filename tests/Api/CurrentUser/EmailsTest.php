@@ -13,7 +13,7 @@ it('should get emails', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/user/emails')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->all())->toBe($expectedValue);
 });
@@ -25,7 +25,7 @@ it('should add email', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/user/emails', ['emails' => ['email@example.com']])
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->add('email@example.com'))->toBe($expectedValue);
 });
@@ -37,7 +37,7 @@ it('should add emails', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/user/emails', ['emails' => ['email@example.com', 'email2@example.com']])
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->add(['email@example.com', 'email2@example.com']))->toBe($expectedValue);
 });
@@ -55,7 +55,7 @@ it('should remove email', function () {
     $api->expects($this->once())
         ->method('delete')
         ->with('/user/emails', ['emails' => ['email@example.com']])
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     expect($api->remove('email@example.com'))->toBe('');
 });
@@ -65,7 +65,7 @@ it('should remove emails', function () {
     $api->expects($this->once())
         ->method('delete')
         ->with('/user/emails', ['emails' => ['email@example.com', 'email2@example.com']])
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     expect($api->remove(['email@example.com', 'email2@example.com']))->toBe('');
 });

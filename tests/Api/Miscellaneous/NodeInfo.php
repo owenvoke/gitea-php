@@ -38,7 +38,7 @@ it('should show node info', function () {
     $api->expects($this->once())
         ->method('get')
         ->with('/nodeinfo')
-        ->will($this->returnValue($expectedValue));
+        ->willReturn($expectedValue);
 
     expect($api->show())->toBe($expectedValue);
 });
