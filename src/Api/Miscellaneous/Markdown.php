@@ -24,6 +24,8 @@ class Markdown extends AbstractApi
             $params['context'] = $context;
         }
 
-        return $this->post('/markdown', $params);
+        return $this->post('/markdown', $params, [
+            'Accept' => 'text/html',
+        ]);
     }
 }
