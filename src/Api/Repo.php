@@ -112,6 +112,11 @@ class Repo extends AbstractApi
         ]);
     }
 
+    public function getRawFile(string $username, string $repository, string $filename, array $parameters = [])
+    {
+        return $this->get(sprintf('/repos/%s/%s/raw/%s', rawurlencode($username), rawurlencode($repository), rawurlencode($filename)), $parameters);
+    }
+
     public function issues(): Issue
     {
         return new Issue($this->getClient());
