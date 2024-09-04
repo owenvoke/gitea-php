@@ -7,6 +7,7 @@ use OwenVoke\Gitea\Api\AbstractApi;
 class Markdown extends AbstractApi
 {
     public const MARKDOWN_MODE_DEFAULT = 'markdown';
+
     public const MARKDOWN_MODE_GFM = 'gfm';
 
     public function render(string $text, string $mode = self::MARKDOWN_MODE_DEFAULT, ?string $context = null): string

@@ -11,7 +11,7 @@ An object oriented PHP wrapper for the Gitea API
 
 ## Requirements
 
-- PHP >= 7.4
+- PHP >= 8.2
 - A [PSR-17 implementation](https://packagist.org/providers/psr/http-factory-implementation)
 - A [PSR-18 implementation](https://packagist.org/providers/psr/http-client-implementation)
 
@@ -20,7 +20,7 @@ An object oriented PHP wrapper for the Gitea API
 Via Composer
 
 ```shell
-composer require owenvoke/gitea guzzlehttp/guzzle:^7.4 http-interop/http-factory-guzzle:^1.2
+composer require owenvoke/gitea guzzlehttp/guzzle:^7.9 http-interop/http-factory-guzzle:^1.2
 ```
 
 We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).

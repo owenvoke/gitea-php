@@ -34,9 +34,9 @@ final class Builder
     private array $headers = [];
 
     public function __construct(
-        ClientInterface $httpClient = null,
-        RequestFactoryInterface $requestFactory = null,
-        StreamFactoryInterface $streamFactory = null
+        ?ClientInterface $httpClient = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null
     ) {
         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
@@ -51,7 +51,7 @@ final class Builder
             $plugins = $this->plugins;
 
             $this->pluginClient = new HttpMethodsClient(
-                (new PluginClientFactory())->createClient($this->httpClient, $plugins),
+                (new PluginClientFactory)->createClient($this->httpClient, $plugins),
                 $this->requestFactory,
                 $this->streamFactory
             );
@@ -63,7 +63,6 @@ final class Builder
     /**
      * Add a new plugin to the end of the plugin chain.
      *
-     * @param  Plugin  $plugin
      * @return void
      */
     public function addPlugin(Plugin $plugin)
@@ -102,7 +101,6 @@ final class Builder
     }
 
     /**
-     * @param  array  $headers
      * @return void
      */
     public function addHeaders(array $headers)

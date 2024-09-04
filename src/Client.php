@@ -55,14 +55,16 @@ final class Client
     public const AUTH_ACCESS_TOKEN = 'access_token_header';
 
     public string $apiVersion;
+
     private ?string $enterpriseUrl = null;
+
     private Builder $httpClientBuilder;
 
-    public function __construct(Builder $httpClientBuilder = null, ?string $apiVersion = null, ?string $enterpriseUrl = null)
+    public function __construct(?Builder $httpClientBuilder = null, ?string $apiVersion = null, ?string $enterpriseUrl = null)
     {
-        $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
+        $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder;
 
-        $builder->addPlugin(new RedirectPlugin());
+        $builder->addPlugin(new RedirectPlugin);
         $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://gitea.com')));
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'gitea-php (https://github.com/owenvoke/gitea-php)',
@@ -138,11 +140,11 @@ final class Client
 
     public function authenticate(string $tokenOrLogin, ?string $password = null, ?string $authMethod = null): void
     {
-        if (null === $password && null === $authMethod) {
+        if ($password === null && $authMethod === null) {
             throw new InvalidArgumentException('You need to specify authentication method!');
         }
 
-        if (null === $authMethod && $password === self::AUTH_ACCESS_TOKEN) {
+        if ($authMethod === null && $password === self::AUTH_ACCESS_TOKEN) {
             $authMethod = $password;
             $password = null;
         }

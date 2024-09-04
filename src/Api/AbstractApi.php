@@ -15,7 +15,6 @@ abstract class AbstractApi
     /** The per page parameter. */
     protected ?int $perPage = null;
 
-    /** @param Client $client */
     public function __construct(Client $client)
     {
         $this->client = $client;
@@ -46,11 +45,11 @@ abstract class AbstractApi
      */
     protected function get(string $path, array $parameters = [], array $requestHeaders = [])
     {
-        if (null !== $this->perPage && ! isset($parameters['limit'])) {
+        if ($this->perPage !== null && ! isset($parameters['limit'])) {
             $parameters['limit'] = $this->perPage;
         }
 
-        if (array_key_exists('ref', $parameters) && null === $parameters['ref']) {
+        if (array_key_exists('ref', $parameters) && $parameters['ref'] === null) {
             unset($parameters['ref']);
         }
 
@@ -69,11 +68,10 @@ abstract class AbstractApi
      * @param  string  $path  Request path.
      * @param  array  $parameters  HEAD parameters.
      * @param  array  $requestHeaders  Request headers.
-     * @return ResponseInterface
      */
     protected function head(string $path, array $parameters = [], array $requestHeaders = []): ResponseInterface
     {
-        if (array_key_exists('ref', $parameters) && null === $parameters['ref']) {
+        if (array_key_exists('ref', $parameters) && $parameters['ref'] === null) {
             unset($parameters['ref']);
         }
 
@@ -177,10 +175,9 @@ abstract class AbstractApi
      * Create a JSON encoded version of an array of parameters.
      *
      * @param  array  $parameters  Request parameters
-     * @return string|null
      */
     protected function createJsonBody(array $parameters): ?string
     {
-        return (count($parameters) === 0) ? null : json_encode($parameters, empty($parameters) ? JSON_FORCE_OBJECT : 0);
+        return (count($parameters) === 0) ? null : (json_encode($parameters) ?: null);
     }
 }

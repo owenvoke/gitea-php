@@ -14,7 +14,10 @@ final class Authentication implements Plugin
     use VersionBridgePlugin;
 
     private string $tokenOrLogin;
+
+    /** @phpstan-ignore property.onlyWritten */
     private ?string $password;
+
     private ?string $method;
 
     /**
