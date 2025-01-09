@@ -68,6 +68,7 @@ final class Client
         $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://gitea.com')));
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'gitea-php (https://github.com/owenvoke/gitea-php)',
+            'Content-Type' => 'application/json',
         ]));
 
         $this->apiVersion = $apiVersion ?: 'v1';
