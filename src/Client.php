@@ -6,6 +6,7 @@ namespace OwenVoke\Gitea;
 
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
+use Http\Client\Common\Plugin\ContentTypePlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
@@ -68,8 +69,8 @@ final class Client
         $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://gitea.com')));
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'gitea-php (https://github.com/owenvoke/gitea-php)',
-            'Content-Type' => 'application/json',
         ]));
+        $builder->addPlugin(new ContentTypePlugin());
 
         $this->apiVersion = $apiVersion ?: 'v1';
         $builder->addHeaderValue('Accept', 'application/json');
