@@ -70,7 +70,7 @@ final class Client
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'gitea-php (https://github.com/owenvoke/gitea-php)',
         ]));
-        $builder->addPlugin(new ContentTypePlugin());
+        $builder->addPlugin(new ContentTypePlugin);
 
         $this->apiVersion = $apiVersion ?: 'v1';
         $builder->addHeaderValue('Accept', 'application/json');
