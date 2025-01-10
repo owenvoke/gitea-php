@@ -20,7 +20,7 @@
         "laravel/pint": "^1.17",
         "pestphp/pest": "^2.35",
         "php-http/mock-client": "^1.6",
-        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan": "^2.0",
         "symfony/var-dumper": "^7.1"
     },
     "autoload": {
