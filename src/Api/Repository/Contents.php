@@ -25,4 +25,14 @@ class Contents extends AbstractApi
 
         return $this->post(sprintf('/repos/%s/%s/contents', rawurlencode($owner), rawurlencode($repository)), $parameters);
     }
+
+    public function getFile(string $owner, string $repository, string $filepath, string $ref = ''): array
+    {
+        $format = '/repos/%s/%s/contents/%s';
+        if (!empty($ref)) {
+            $format = '/repos/%s/%s/contents/%s?ref=%s';
+        }
+
+        return $this->get(sprintf($format, rawurlencode($owner), rawurlencode($repository), rawurlencode($filepath), rawurlencode($ref)));
+    }
 }
