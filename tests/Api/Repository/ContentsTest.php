@@ -127,7 +127,6 @@ it('should update a file in the repository', function () {
             'target' => '', 'type' => '', 'url' => ''
         ]
     ];
-
     $data = ['content' => '', 'sha' => ''];
 
     $api = $this->getApiMock();
@@ -137,4 +136,34 @@ it('should update a file in the repository', function () {
         ->willReturn($expectedValue);
 
     expect($api->update('owenvoke', 'gitea-php', 'content.txt', $data))->toBe($expectedValue);
+});
+
+it('should create a file in the repository without using the content option', function () {
+    $data = [];
+
+    $api = $this->getApiMock();
+    $api->expects($this->never())
+        ->method('post')
+        ->with('/repos/owenvoke/gitea-php/contents/content.txt', $data);
+
+    $api->create('owenvoke', 'gitea-php', 'content.txt', $data);
+})->throws(MissingArgumentException::class);
+
+it('should create a file in the repository', function () {
+    $expectedValue = [
+        'content' => [
+            '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
+            'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
+            'target' => '', 'type' => '', 'url' => ''
+        ]
+    ];
+    $data = ['content' => ''];
+
+    $api = $this->getApiMock();
+    $api->expects($this->once())
+        ->method('post')
+        ->with('/repos/owenvoke/gitea-php/contents/content.txt')
+        ->willReturn($expectedValue);
+
+    expect($api->create('owenvoke', 'gitea-php', 'content.txt', $data))->toBe($expectedValue);
 });

@@ -49,7 +49,14 @@ class Contents extends AbstractApi
         return $this->put(sprintf('/repos/%s/%s/contents/%s', rawurlencode($owner), rawurlencode($repository), rawurlencode($filepath)), $params);
     }
 
-    // create
+    public function create(string $owner, string $repository, string $filepath, array $params)
+    {
+        if (!isset($params['content'])) {
+            throw new MissingArgumentException(['content']);
+        }
+
+        return $this->post(sprintf('/repos/%s/%s/contents/%s', rawurlencode($owner), rawurlencode($repository), rawurlencode($filepath)), $params);
+    }
 
     // remove
 }
