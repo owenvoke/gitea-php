@@ -58,5 +58,12 @@ class Contents extends AbstractApi
         return $this->post(sprintf('/repos/%s/%s/contents/%s', rawurlencode($owner), rawurlencode($repository), rawurlencode($filepath)), $params);
     }
 
-    // remove
+    public function remove(string $owner, string $repository, string $filepath, array $params)
+    {
+        if (!isset($params['sha'])) {
+            throw new MissingArgumentException(['sha']);
+        }
+
+        return $this->delete(sprintf('/repos/%s/%s/contents/%s', rawurlencode($owner), rawurlencode($repository), rawurlencode($filepath)), $params);
+    }
 }

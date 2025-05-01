@@ -167,3 +167,29 @@ it('should create a file in the repository', function () {
 
     expect($api->create('owenvoke', 'gitea-php', 'content.txt', $data))->toBe($expectedValue);
 });
+
+it('should remove a file in the repository without using the sha option', function () {
+    $data = [];
+
+    $api = $this->getApiMock();
+    $api->expects($this->never())
+        ->method('delete')
+        ->with('/repos/owenvoke/gitea-php/contents/content.txt', $data);
+
+    $api->remove('owenvoke', 'gitea-php', 'content.txt', $data);
+})->throws(MissingArgumentException::class);
+
+it('should remove a file in the repository', function () {
+    $expectedValue = [
+        'content' => null
+    ];
+    $data = ['sha' => ''];
+
+    $api = $this->getApiMock();
+    $api->expects($this->once())
+        ->method('delete')
+        ->with('/repos/owenvoke/gitea-php/contents/content.txt')
+        ->willReturn($expectedValue);
+
+    expect($api->remove('owenvoke', 'gitea-php', 'content.txt', $data))->toBe($expectedValue);
+});
