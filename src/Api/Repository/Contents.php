@@ -10,7 +10,7 @@ class Contents extends AbstractApi
     public function all(string $owner, string $repository, string $ref = ''): array
     {
         $format = '/repos/%s/%s/contents';
-        if (!empty($ref)) {
+        if (! empty($ref)) {
             $format = '/repos/%s/%s/contents?ref=%s';
         }
 
@@ -29,7 +29,7 @@ class Contents extends AbstractApi
     public function show(string $owner, string $repository, string $filepath, string $ref = ''): array
     {
         $format = '/repos/%s/%s/contents/%s';
-        if (!empty($ref)) {
+        if (! empty($ref)) {
             $format = '/repos/%s/%s/contents/%s?ref=%s';
         }
 
@@ -38,11 +38,11 @@ class Contents extends AbstractApi
 
     public function update(string $owner, string $repository, string $filepath, array $params)
     {
-        if (!isset($params['content'])) {
+        if (! isset($params['content'])) {
             throw new MissingArgumentException(['content']);
         }
 
-        if (!isset($params['sha'])) {
+        if (! isset($params['sha'])) {
             throw new MissingArgumentException(['sha']);
         }
 
@@ -51,7 +51,7 @@ class Contents extends AbstractApi
 
     public function create(string $owner, string $repository, string $filepath, array $params)
     {
-        if (!isset($params['content'])) {
+        if (! isset($params['content'])) {
             throw new MissingArgumentException(['content']);
         }
 
@@ -60,7 +60,7 @@ class Contents extends AbstractApi
 
     public function remove(string $owner, string $repository, string $filepath, array $params)
     {
-        if (!isset($params['sha'])) {
+        if (! isset($params['sha'])) {
             throw new MissingArgumentException(['sha']);
         }
 

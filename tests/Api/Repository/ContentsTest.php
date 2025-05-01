@@ -10,8 +10,8 @@ it('should get files of the root dir for a repository', function () {
         [
             '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
             'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-            'target' => '', 'type' => '', 'url' => ''
-        ]
+            'target' => '', 'type' => '', 'url' => '',
+        ],
     ];
 
     $api = $this->getApiMock();
@@ -28,8 +28,8 @@ it('should get files of the root dir for a repository by the ref', function () {
         [
             '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
             'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-            'target' => '', 'type' => '', 'url' => ''
-        ]
+            'target' => '', 'type' => '', 'url' => '',
+        ],
     ];
 
     $api = $this->getApiMock();
@@ -69,7 +69,7 @@ it('should get file for a repository', function () {
     $expectedValue = [
         '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
         'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-        'target' => '', 'type' => '', 'url' => ''
+        'target' => '', 'type' => '', 'url' => '',
     ];
 
     $api = $this->getApiMock();
@@ -85,7 +85,7 @@ it('should get file for a repository by the ref', function () {
     $expectedValue = [
         '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
         'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-        'target' => '', 'type' => '', 'url' => ''
+        'target' => '', 'type' => '', 'url' => '',
     ];
 
     $api = $this->getApiMock();
@@ -124,8 +124,8 @@ it('should update a file in the repository', function () {
         'content' => [
             '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
             'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-            'target' => '', 'type' => '', 'url' => ''
-        ]
+            'target' => '', 'type' => '', 'url' => '',
+        ],
     ];
     $data = ['content' => '', 'sha' => ''];
 
@@ -154,8 +154,8 @@ it('should create a file in the repository', function () {
         'content' => [
             '_links' => [], 'content' => '', 'download_url' => '', 'encoding' => '', 'git_url' => '', 'html_url' => '',
             'last_commit_sha' => '', 'name' => '', 'path' => '', 'sha' => '', 'size' => 0, 'submodule_git_url' => '',
-            'target' => '', 'type' => '', 'url' => ''
-        ]
+            'target' => '', 'type' => '', 'url' => '',
+        ],
     ];
     $data = ['content' => ''];
 
@@ -181,7 +181,7 @@ it('should remove a file in the repository without using the sha option', functi
 
 it('should remove a file in the repository', function () {
     $expectedValue = [
-        'content' => null
+        'content' => null,
     ];
     $data = ['sha' => ''];
 
