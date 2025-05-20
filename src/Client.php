@@ -57,11 +57,11 @@ final class Client
 
     public string $apiVersion;
 
-    private ?string $enterpriseUrl = null;
+    private string|null $enterpriseUrl = null;
 
     private Builder $httpClientBuilder;
 
-    public function __construct(?Builder $httpClientBuilder = null, ?string $apiVersion = null, ?string $enterpriseUrl = null)
+    public function __construct(Builder|null $httpClientBuilder = null, string|null $apiVersion = null, string|null $enterpriseUrl = null)
     {
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder;
 
@@ -140,7 +140,7 @@ final class Client
         }
     }
 
-    public function authenticate(string $tokenOrLogin, ?string $password = null, ?string $authMethod = null): void
+    public function authenticate(string $tokenOrLogin, string|null $password = null, string|null $authMethod = null): void
     {
         if ($password === null && $authMethod === null) {
             throw new InvalidArgumentException('You need to specify authentication method!');
@@ -167,7 +167,7 @@ final class Client
         $builder->addPlugin(new PathPrepend(sprintf('/api/%s', $this->getApiVersion())));
     }
 
-    public function getEnterpriseUrl(): ?string
+    public function getEnterpriseUrl(): string|null
     {
         return $this->enterpriseUrl;
     }

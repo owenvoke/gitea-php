@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use OwenVoke\Gitea\Api\CurrentUser\Emails;
 use OwenVoke\Gitea\Exception\InvalidArgumentException;
 

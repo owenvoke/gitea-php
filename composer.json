@@ -17,7 +17,7 @@
         "guzzlehttp/guzzle": "^7.9",
         "guzzlehttp/psr7": "^2.7",
         "http-interop/http-factory-guzzle": "^1.2",
-        "laravel/pint": "^1.17",
+        "laravel/pint": "^1.22",
         "pestphp/pest": "^2.35",
         "php-http/mock-client": "^1.6",
         "phpstan/phpstan": "^2.0",
@@ -34,9 +34,12 @@
         }
     },
     "scripts": {
+        "lint": "pint --ansi",
+        "test:lint": "pint --test --ansi",
         "test:types": "phpstan analyse --ansi --memory-limit=-1",
         "test:unit": "pest --colors=always",
         "test": [
+            "@test:lint",
             "@test:types",
             "@test:unit"
         ]

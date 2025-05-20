@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use OwenVoke\Gitea\Api\Repository\Contents;
 use OwenVoke\Gitea\Exception\MissingArgumentException;
 

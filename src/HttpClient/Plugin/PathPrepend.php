@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OwenVoke\Gitea\HttpClient\Plugin;
 
 use Http\Client\Common\Plugin;

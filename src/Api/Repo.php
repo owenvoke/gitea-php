@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OwenVoke\Gitea\Api;
 
 use OwenVoke\Gitea\Api\Repository\Commits;
@@ -23,11 +25,11 @@ class Repo extends AbstractApi
         string $description = '',
         string $homepage = '',
         bool $public = true,
-        ?string $organization = null,
-        ?string $license = null,
-        ?string $readme = null,
-        ?string $gitignores = null,
-        ?string $issueLabels = null,
+        string|null $organization = null,
+        string|null $license = null,
+        string|null $readme = null,
+        string|null $gitignores = null,
+        string|null $issueLabels = null,
         bool $autoInit = false
     ): array {
         $path = $organization !== null ? "/orgs/{$organization}/repos" : '/user/repos';
@@ -61,7 +63,7 @@ class Repo extends AbstractApi
         bool $protectedBranch = true,
         bool $topics = true,
         bool $webhooks = true,
-        ?string $defaultBranch = null
+        string|null $defaultBranch = null
     ): array {
         $path = "/repos/{$templateOwner}/{$templateName}/generate";
 
@@ -93,7 +95,7 @@ class Repo extends AbstractApi
         return $this->delete(sprintf('/repos/%s/%s', rawurlencode($username), rawurlencode($repository)));
     }
 
-    public function branches(string $username, string $repository, ?string $branch = null): array
+    public function branches(string $username, string $repository, string|null $branch = null): array
     {
         $url = sprintf('/repos/%s/%s/branches', rawurlencode($username), rawurlencode($repository));
         if ($branch !== null) {

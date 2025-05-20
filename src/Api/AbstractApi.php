@@ -13,7 +13,7 @@ abstract class AbstractApi
     private Client $client;
 
     /** The per page parameter. */
-    protected ?int $perPage = null;
+    protected int|null $perPage = null;
 
     public function __construct(Client $client)
     {
@@ -176,7 +176,7 @@ abstract class AbstractApi
      *
      * @param  array  $parameters  Request parameters
      */
-    protected function createJsonBody(array $parameters): ?string
+    protected function createJsonBody(array $parameters): string|null
     {
         return (count($parameters) === 0) ? null : (json_encode($parameters) ?: null);
     }

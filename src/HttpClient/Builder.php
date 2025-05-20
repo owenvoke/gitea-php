@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OwenVoke\Gitea\HttpClient;
 
 use Http\Client\Common\HttpMethodsClient;
@@ -34,9 +36,9 @@ final class Builder
     private array $headers = [];
 
     public function __construct(
-        ?ClientInterface $httpClient = null,
-        ?RequestFactoryInterface $requestFactory = null,
-        ?StreamFactoryInterface $streamFactory = null
+        ClientInterface|null $httpClient = null,
+        RequestFactoryInterface|null $requestFactory = null,
+        StreamFactoryInterface|null $streamFactory = null
     ) {
         $this->httpClient = $httpClient ?? Psr18ClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? Psr17FactoryDiscovery::findRequestFactory();
