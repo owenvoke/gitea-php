@@ -47,6 +47,42 @@ class Repo extends AbstractApi
         return $this->post($path, $parameters);
     }
 
+    public function generate(
+        string $templateOwner,
+        string $templateName,
+        string $name,
+        string $organization,
+        string $description = '',
+        bool $public = true,
+        bool $avatar = true,
+        bool $labels = true,
+        bool $gitContent = true,
+        bool $gitHooks = true,
+        bool $protectedBranch = true,
+        bool $topics = true,
+        bool $webhooks = true,
+        ?string $defaultBranch = null
+    ): array {
+        $path = "/repos/{$templateOwner}/{$templateName}/generate";
+
+        $parameters = [
+            'name' => $name,
+            'owner' => $organization,
+            'private' => ! $public,
+            'description' => $description,
+            'avatar' => $avatar,
+            'default_branch' => $defaultBranch,
+            'git_content' => $gitContent,
+            'git_hooks' => $gitHooks,
+            'labels' => $labels,
+            'protected_branch' => $protectedBranch,
+            'topics' => $topics,
+            'webhooks' => $webhooks,
+        ];
+
+        return $this->post($path, $parameters);
+    }
+
     public function update(string $username, string $repository, array $values): array
     {
         return $this->patch(sprintf('/repos/%s/%s', rawurlencode($username), rawurlencode($repository)), $values);
