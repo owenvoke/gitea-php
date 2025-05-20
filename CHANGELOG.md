@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v0.1.9 - 2025-05-20](https://github.com/owenvoke/gitea-php/compare/v0.1.8...v0.1.9)
+
+### Added
+- Add repo generation from templates ([#11](https://github.com/owenvoke/gitea-php/pull/11))
+
 ## [v0.1.8 - 2025-05-02](https://github.com/owenvoke/gitea-php/compare/v0.1.7...v0.1.8)
 
 ### Added
