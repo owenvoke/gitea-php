@@ -97,6 +97,36 @@ it('should create a repository with all parameters', function () {
     expect($api->create('repoName', 'test', 'https://voke.dev', false, null, 'MIT', '# Blah', null, 'MyLabels', true))->toBe($expectedArray);
 });
 
+it('should generate a repository only using its name', function () {
+    $expectedArray = ['id' => 1, 'name' => 'repoName'];
+
+    $api = $this->getApiMock();
+    $api->expects($this->once())
+        ->method('post')
+        ->with('/repos/FakeOwner/TemplateRepo/generate', [
+            'name' => 'NewRepo',
+            'description' => '',
+            'private' => false,
+            'owner' => 'me',
+            'avatar' => true,
+            'default_branch' => null,
+            'git_content' => true,
+            'git_hooks' => true,
+            'labels' => true,
+            'protected_branch' => true,
+            'topics' => true,
+            'webhooks' => true,
+        ])
+        ->willReturn($expectedArray);
+
+    expect($api->generate(
+        templateOwner: 'FakeOwner',
+        templateName: 'TemplateRepo',
+        name: 'NewRepo',
+        organization: 'me',
+    ))->toBe($expectedArray);
+});
+
 it('should get the subscribers for a repository', function () {
     $expectedArray = [['id' => 1, 'username' => 'owenvoke']];
 
