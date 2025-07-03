@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OwenVoke\Gitea\HttpClient\Plugin;
 
 use Http\Client\Common\Plugin;
@@ -14,15 +16,18 @@ final class Authentication implements Plugin
     use VersionBridgePlugin;
 
     private string $tokenOrLogin;
-    private ?string $password;
-    private ?string $method;
+
+    /** @phpstan-ignore property.onlyWritten */
+    private string|null $password;
+
+    private string|null $method;
 
     /**
      * @param  string  $tokenOrLogin  Gitea private token/username/client ID
      * @param  string|null  $password  Gitea password/secret (optionally can contain $method)
      * @param  string|null  $method  One of the AUTH_* class constants
      */
-    public function __construct(string $tokenOrLogin, ?string $password, ?string $method)
+    public function __construct(string $tokenOrLogin, string|null $password, string|null $method)
     {
         $this->tokenOrLogin = $tokenOrLogin;
         $this->password = $password;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use OwenVoke\Gitea\Api\Repository\Commits;
 
 beforeEach(fn () => $this->apiClass = Commits::class);

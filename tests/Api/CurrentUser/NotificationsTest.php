@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use OwenVoke\Gitea\Api\CurrentUser\Notifications;
 
 beforeEach(fn () => $this->apiClass = Notifications::class);

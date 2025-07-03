@@ -4,23 +4,24 @@
     "description": "An object oriented PHP wrapper for the Gitea API",
     "license": "MIT",
     "require": {
-        "php": "^7.4 || ^8.0",
-        "php-http/client-common": "^2.4",
-        "php-http/discovery": "^1.14",
-        "php-http/httplug": "^2.2",
-        "php-http/multipart-stream-builder": "^1.1",
+        "php": "^8.2",
+        "php-http/client-common": "^2.7",
+        "php-http/discovery": "^1.19",
+        "php-http/httplug": "^2.4",
+        "php-http/multipart-stream-builder": "^1.4",
         "psr/http-client-implementation": "^1.0",
         "psr/http-factory-implementation": "^1.0",
-        "psr/http-message": "^1.0"
+        "psr/http-message": "^1.0 || ^2.0"
     },
     "require-dev": {
-        "guzzlehttp/guzzle": "^7.4",
-        "guzzlehttp/psr7": "^2.1",
+        "guzzlehttp/guzzle": "^7.9",
+        "guzzlehttp/psr7": "^2.7",
         "http-interop/http-factory-guzzle": "^1.2",
-        "pestphp/pest": "^1.20",
-        "php-http/mock-client": "^1.5",
-        "phpstan/phpstan": "^0.12.99",
-        "symfony/var-dumper": "^5.3.8"
+        "laravel/pint": "^1.22",
+        "pestphp/pest": "^2.35",
+        "php-http/mock-client": "^1.6",
+        "phpstan/phpstan": "^2.0",
+        "symfony/var-dumper": "^7.1"
     },
     "autoload": {
         "psr-4": {
@@ -33,15 +34,22 @@
         }
     },
     "scripts": {
+        "lint": "pint --ansi",
+        "test:lint": "pint --test --ansi",
         "test:types": "phpstan analyse --ansi --memory-limit=-1",
         "test:unit": "pest --colors=always",
         "test": [
+            "@test:lint",
             "@test:types",
             "@test:unit"
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

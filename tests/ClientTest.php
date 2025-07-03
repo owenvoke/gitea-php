@@ -16,7 +16,7 @@ use OwenVoke\Gitea\Api\User;
 use OwenVoke\Gitea\Client;
 
 it('gets instances from the client', function () {
-    $client = new Client();
+    $client = new Client;
 
     // Retrieves Admin instance
     expect($client->admin())->toBeInstanceOf(Admin::class);

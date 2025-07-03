@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OwenVoke\Gitea\HttpClient\Message;
 
 use Psr\Http\Message\ResponseInterface;
@@ -7,7 +9,6 @@ use Psr\Http\Message\ResponseInterface;
 final class ResponseMediator
 {
     /**
-     * @param  ResponseInterface  $response
      * @return array|string
      */
     public static function getContent(ResponseInterface $response)
@@ -15,7 +16,7 @@ final class ResponseMediator
         $body = $response->getBody()->__toString();
         if (strpos($response->getHeaderLine('Content-Type'), 'application/json') === 0) {
             $content = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
-            if (JSON_ERROR_NONE === json_last_error()) {
+            if (json_last_error() === JSON_ERROR_NONE) {
                 return $content;
             }
         }
@@ -24,7 +25,6 @@ final class ResponseMediator
     }
 
     /**
-     * @param  ResponseInterface  $response
      * @return array|void
      */
     public static function getPagination(ResponseInterface $response)
@@ -38,7 +38,7 @@ final class ResponseMediator
         foreach (explode(',', $header) as $link) {
             preg_match('/<(.*)>; rel="(.*)"/i', trim($link, ','), $match);
 
-            if (3 === count($match)) {
+            if (count($match) === 3) {
                 $pagination[$match[2]] = $match[1];
             }
         }
@@ -49,7 +49,6 @@ final class ResponseMediator
     /**
      * Get the value for a single header.
      *
-     * @param  ResponseInterface  $response
      * @param  string  $name
      * @return string|null
      */

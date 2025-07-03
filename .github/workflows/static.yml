@@ -3,6 +3,29 @@ name: Static Analysis
 on: ['push', 'pull_request']
 
 jobs:
+
+  pint:
+    runs-on: ubuntu-latest
+
+    name: Pint
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+
+      - name: Install Dependencies
+        run: composer update --no-interaction --prefer-dist --no-progress --ansi
+
+      - name: Run Pint
+        run: vendor/bin/pint --test --ansi
+
   phpstan:
     runs-on: ubuntu-latest
 
@@ -14,17 +37,16 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 7.4
-        tools: composer
+        php-version: 8.4
         coverage: none
 
     - name: Install Dependencies
-      run: composer update --prefer-stable --no-interaction --prefer-dist --no-progress --ansi
+      run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist --no-progress --ansi
 
     - name: Run PHPStan
       run: vendor/bin/phpstan analyse --no-progress --ansi
