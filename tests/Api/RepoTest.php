@@ -216,7 +216,7 @@ it('should remove a repository', function () {
     $api->expects($this->once())
         ->method('delete')
         ->with('/repos/owenvoke/gitea-php')
-        ->will($this->returnValue(null));
+        ->willReturn(null);
 
     expect($api->remove('owenvoke', 'gitea-php'))->toBeNull();
 });

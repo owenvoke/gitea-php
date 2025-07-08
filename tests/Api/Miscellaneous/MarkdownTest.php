@@ -13,7 +13,7 @@ it('should render markdown', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/markdown', ['text' => $input, 'mode' => 'markdown'])
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     $api->render($input);
 });
@@ -25,7 +25,7 @@ it('should set the mode to markdown when invalid mode is passed', function () {
     $api->expects($this->once())
         ->method('post')
         ->with('/markdown', ['text' => $input, 'mode' => 'markdown'])
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     $api->render($input, 'abc');
 });

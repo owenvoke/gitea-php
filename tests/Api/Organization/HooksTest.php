@@ -39,7 +39,7 @@ it('should remove a hook by its id', function () {
     $api->expects($this->once())
         ->method('delete')
         ->with('/orgs/TestOrg/hooks/123')
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     expect($api->remove('TestOrg', 123))->toBe('');
 });

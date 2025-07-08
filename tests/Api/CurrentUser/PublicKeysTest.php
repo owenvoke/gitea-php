@@ -36,7 +36,7 @@ it('should remove key', function () {
     $api->expects($this->once())
         ->method('delete')
         ->with('/user/keys/1')
-        ->will($this->returnValue(''));
+        ->willReturn('');
 
     expect($api->remove(1))->toBe('');
 });

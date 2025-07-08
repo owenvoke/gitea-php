@@ -18,9 +18,9 @@
         "guzzlehttp/psr7": "^2.7",
         "http-interop/http-factory-guzzle": "^1.2",
         "laravel/pint": "^1.22",
-        "pestphp/pest": "^2.35",
+        "pestphp/pest": "^3.8",
         "php-http/mock-client": "^1.6",
-        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan": "^2.1",
         "symfony/var-dumper": "^7.1"
     },
     "autoload": {
