@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## [v0.1.10 - 2025-07-08](https://github.com/owenvoke/gitea-php/compare/v0.1.9...v0.1.10)
+
+### Added
+- Add raw file response retrieval ([#6](https://github.com/owenvoke/gitea-php/pull/6))
+
 ## [v0.1.9 - 2025-05-20](https://github.com/owenvoke/gitea-php/compare/v0.1.8...v0.1.9)
 
 ### Added
