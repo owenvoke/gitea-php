@@ -259,3 +259,15 @@ it('should transfer a repository', function () {
 
     expect($api->transfer('owenvoke', 'gitea-php', 'other-account', ['1234', '4321']))->toBe($expectedArray);
 });
+
+it("should fetch a raw file's data", function () {
+    $expectedArray = ['# Gitea PHP'];
+
+    $api = $this->getApiMock();
+    $api->expects($this->once())
+        ->method('get')
+        ->with('/repos/owenvoke/gitea-php/raw/README.md')
+        ->willReturn($expectedArray);
+
+    expect($api->show('owenvoke', 'gitea-php'))->toBe($expectedArray);
+});
