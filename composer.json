@@ -4,7 +4,7 @@
     "description": "An object oriented PHP wrapper for the Gitea API",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "php-http/client-common": "^2.7",
         "php-http/discovery": "^1.19",
         "php-http/httplug": "^2.4",
@@ -18,7 +18,7 @@
         "guzzlehttp/psr7": "^2.7",
         "http-interop/http-factory-guzzle": "^1.2",
         "laravel/pint": "^1.22",
-        "pestphp/pest": "^3.8",
+        "pestphp/pest": "^4.1",
         "php-http/mock-client": "^1.6",
         "phpstan/phpstan": "^2.1",
         "symfony/var-dumper": "^7.1"
